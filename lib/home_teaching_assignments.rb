@@ -68,9 +68,11 @@ class Assignment
   attr_accessor :households
   attr_accessor :month
   attr_accessor :district_supervisor
+  # the actual text of the assignment (fixed width font formatted)
+  attr_accessor :text
 
-  def initialize(teachers, households, district_supervisor, organization=nil, month=nil)
-    (@organization, @teachers, @households, @district_supervisor, @month) = organization, teachers, households, district_supervisor, month 
+  def initialize(teachers, households, district_supervisor, text, organization=nil, month=nil)
+    (@organization, @teachers, @households, @district_supervisor, @month, @text) = organization, teachers, households, district_supervisor, month, text 
   end
 
   # returns assignments
@@ -133,10 +135,9 @@ class Assignment::Parser
 
   # returns lines with teachers and households, chomped and removes trailing
   # lines with no data.  households is an array of arrays
-  def split_teachers_and_households(io, ranges)
+  def split_teachers_and_households(lines, ranges)
     teacher_lines = [] ; household_ars = []
-    while line = io.gets 
-      break if ((line =~ /For Church Use Only/) || (line !~ /\w/))
+    lines.each do |line|
       teacher_lines << line[ranges.teachers]
       household_ars << [:households, :given, :sex, :birth, :age].map {|k| line[ranges[k]].andand.chomp }
     end
@@ -245,6 +246,20 @@ class Assignment::Parser
     end
     households
   end
+  
+  # assumes you are already inside an assignment.  gets all the remaining
+  # lines
+  def get_remaining_assignment_lines(io)
+    lines = []
+    while line = io.gets 
+      if ((line =~ /For Church Use Only/) || (line !~ /\w/))
+        break
+      else
+        lines << line
+      end
+    end
+    lines
+  end
 
   # returns a teaching assignment if one exists
   def parse_assignment(io)
@@ -258,13 +273,15 @@ class Assignment::Parser
       end
     end
     if is_an_assignment
+      other_lines = get_remaining_assignment_lines(io)
+      all_lines = [line, *other_lines]
       (org, sv) = parse_organization_and_supervisor(line)
-      ranges = get_ranges_from_header_line(io.gets)
-      (teacher_lines, household_ars) = split_teachers_and_households(io, ranges)
+      ranges = get_ranges_from_header_line(other_lines.shift)
+      (teacher_lines, household_ars) = split_teachers_and_households(lines, ranges)
       teachers = parse_teacher_lines(teacher_lines)
       households = parse_household_lines(household_ars)
       key = [:last, :first, :phone].map {|k| sv.send(k) }
-      Assignment.new(teachers, households, @supervisor_triple_to_person[key], org, @month )
+      Assignment.new(teachers, households, @supervisor_triple_to_person[key], all_lines.join, org, @month )
     end
   end
 
