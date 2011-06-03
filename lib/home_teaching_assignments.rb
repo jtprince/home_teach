@@ -17,6 +17,17 @@ class Person
     end
   end
 
+  # another_record takes precedence, but will not over-write data with nil
+  def merge(another_record)
+    new_one = self.dup
+    [:last, :first, :sex, :birthday, :age, :address, :phone, :email].each do |key|
+      if new_val = another_record.send(key)
+        #### HERER
+
+      end
+    end
+  end
+
   def ==(other)
     if last == other.last && first == other.first
       return false if sex != other.sex
@@ -75,9 +86,32 @@ class Assignment
     (@organization, @teachers, @households, @district_supervisor, @month, @text) = organization, teachers, households, district_supervisor, month, text 
   end
 
+  # merges supervisors, teachers and heads of household.  Takes the individual data
+  # over household data.  Uses names and address for merging, so fathers and
+  # sons in the same house and with the same name may get clobbered.
+  # Supervisor merged by phone number.
+  def self.merge!(assignments)
+    teachers = assignments.map {|assignment| assignment.teachers }.flatten(1)
+    heads_of_household = assignments.map do |assignment| 
+      assignment.households.map do |household| 
+        household.heads_of_household.each do |head|
+          [:address, :phone, :email].each {|key| head.send("#{key}=", household.send(key)) }
+        end
+        household.heads_of_household
+      end
+    end.flatten(2)
+    adults = teachers + heads_of_household
+    by_email = adults.group_by {|p| [p.first, p.last, p.email] }
+    by_address = adults.group_by {|p| [p.first, p.last, p.address] }
+    by_phone = adults.group_by {|p| [p.first, p.last, p.phone] }
+  end
+
   # returns assignments
-  def self.create_assignments(assignments_pdf)
+  def self.create_assignments(assignments_pdf, opts={})
     (assignments, ward, assignment_type, stake, organization, district) = Parser.new.parse(assignments_pdf)
+    if opts[:merge]
+      self.merge!(assignments) 
+    end
     assignments
   end
 
@@ -277,7 +311,7 @@ class Assignment::Parser
       all_lines = [line, *other_lines]
       (org, sv) = parse_organization_and_supervisor(line)
       ranges = get_ranges_from_header_line(other_lines.shift)
-      (teacher_lines, household_ars) = split_teachers_and_households(lines, ranges)
+      (teacher_lines, household_ars) = split_teachers_and_households(other_lines, ranges)
       teachers = parse_teacher_lines(teacher_lines)
       households = parse_household_lines(household_ars)
       key = [:last, :first, :phone].map {|k| sv.send(k) }
