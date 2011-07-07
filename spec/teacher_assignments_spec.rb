@@ -16,3 +16,11 @@ describe "TeacherAssignments: parsing household info" do
     reply.enums ["SomeFirstname", nil, "221 260-3955", "somebody@yahoo.com", ["4279 Banana Lane", "Greenborough, WI 99887",] ]
   end
 end
+
+describe "Parsing a simple text doc (transformed from PDF with names changed)" do
+  before do
+  end
+
+  it 'works' do
+  end
+end

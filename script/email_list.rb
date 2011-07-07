@@ -19,8 +19,20 @@ pdf = ARGV.shift
 
 assignments = Assignment.create_assignments(pdf, :merge => true)
 
+
+SimplePerson = Struct.new(:last, :first, :email)
+
 uniq = assignments.map(&:teachers).flatten.group_by {|teacher| [teacher.last, teacher.first] }.map {|k,v| v.first }
-uniq.each do |person|
+
+speople = uniq.map {|t| SimplePerson.new(t.last, t.first, t.email) }
+
+(no_email, email) = speople.partition {|t| t.email.nil? }
+puts "No email address:"
+no_email.each do |p|
+  puts "#{p.first} #{p.last}"
 end
-emails = uniq.map {|person| %Q{"#{person.first} #{person.last}" <#{person.email}>} }.join(', ')
-p emails
+
+string = email.map do |p|
+  %Q{"#{p.first.gsub(/\s+/,' ')} #{p.last.strip}" <#{p.email}>}
+end.join(', ')
+puts string
