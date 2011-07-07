@@ -8,9 +8,9 @@ describe "Parsing a simple text doc (transformed from PDF with names changed)" d
     @txt_file = TESTFILES + '/Home_Teaching_Assignments-mock.txt'
   end
 
-  it 'works' do
+  it 'reads assignments' do
     assignments = HomeTeach::Assignment.create(@txt_file)
-    p assignments[0,3]
-    1.is 1
+    teachers = assignments.map(&:teachers).flatten(1)
+    teachers.size.is 8
   end
 end

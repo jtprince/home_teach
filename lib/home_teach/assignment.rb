@@ -41,15 +41,16 @@ module HomeTeach
     # ########################################## ==> This is not yet working
     # properly!!!!
     def self.remove_duplicates!(assignments)
-      teacher_sets = Set.new
-      assignments.select do |assgn|
-        if teacher_sets.include?( Set.new(assgn.teachers) )
+      seen = []
+      assignments.select! do |as|
+        if seen.include?(as.teachers.sort)
           false
         else
-          teacher_sets << Set.new(assgn.teachers)
+          seen << as.teachers.sort
           true
         end
       end
+      assignments
     end
 
     # returns assignments.  Takes an assignments pdf file, or the file created
@@ -60,7 +61,7 @@ module HomeTeach
     def self.create(assignments_file, opts={})
       opts = {:merge => true, :remove_duplicates => true }.merge(opts)
       (assignments, ward, assignment_type, stake, organization, district) = Parser.new.parse(assignments_file)
-      self.remove_duplicates!(assignments)
+      self.remove_duplicates!(assignments) if opts[:remove_duplicates]
       if opts[:merge]
         self.merge!(assignments) 
       end

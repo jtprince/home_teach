@@ -48,8 +48,8 @@ module HomeTeach
       def get_ranges_from_header_line(line)
         line.chomp!
         indices = %w(Teachers Households Given Sex Birth Age).map {|key| line.index(key) }
-        ranges = [[0, indices[1]-16], 
-          [indices[1]-15, indices[2]-6], 
+        ranges = [[0, indices[1]-17], 
+          [indices[1]-16, indices[2]-6], 
           [indices[2]-5, indices[3]-2], 
           [indices[3], indices[3]+4], 
           [indices[3]+5, indices[5]-1], 
@@ -91,9 +91,6 @@ module HomeTeach
         (email_addresses, phone_nums) = phone_etc.partition do |line|
           line.include?('@')
         end
-        #if last == 'Hedengren'
-        #  puts "CHECKING: EMAIL: #{email_addresses.first} PHONE: #{phone_nums.first}, LAST: #{last}, ADDRESS: #{address.inspect}"
-        #end
         phone_num = phone_nums.first
         phone_num == '' && phone_num = nil
         email_address = email_addresses.first

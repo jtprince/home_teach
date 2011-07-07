@@ -17,7 +17,7 @@ Poppy, Simon                           Green, OH 45202
   purplesnak@gmail.com
 
 
-Home Teaching Organization: Elders                                       District Supervisor: Boatup, George (216-995-2383)
+Home Teaching Organization: Elders                                       District Supervisor: Boatup, George (216-995-2888)
            Home Teachers                           Households                    Given Name       Sex       Birth       Age
 Punker, Paul                         Framer                                   Smarty                M          15 Feb
   1111 Smile Drive                     4271 Ham Lane
@@ -39,7 +39,7 @@ Slickman, Rand                         4271 Ham Ln                            Ju
                                        206-734-9809
 
 
-Home Teaching Organization: Elders                                       District Supervisor: Boatup, George (216-995-2383)
+Home Teaching Organization: Elders                                       District Supervisor: Boatup, George (216-995-2888)
              Home Teachers                        Households                     Given Name       Sex       Birth       Age
 Slickman, Rand                       Framer                                   Smarty                M          15 Feb
   3456 Superfun Drive                  4271 Ham Lane
@@ -86,12 +86,12 @@ Green Ohio Whizzing South Stake (519243)
 Organization: Elders / District: All
 
 
-Home Teaching Organization: Elders                                        District Supervisor: Boatup, George (216-995-2383)
+Home Teaching Organization: Elders                                        District Supervisor: Boatup, George (216-995-2888)
            Home Teachers                           Households                     Given Name         Sex        Birth        Age
 Boatup, George                       Cooncha                                   Peter                   M          11 May
   2222 Superfun Drive                  3737 South Superfun Drive               Tami                     F          29 Aug
   Green, OH 45202                      Green, OH 45202
-  216-995-2383                         216-369-6018
+  216-995-2888                         216-996-8777
   georgeboat3@yahoo.com                coo@osu.net
 MacIntry, Josh                       Icey                                      Dustin                   M          11 Mar
   9982 East Smile Dr                   3904 N. Superfun Drive                  Melinda                  F           21 Jun
@@ -101,19 +101,46 @@ MacIntry, Josh                       Icey                                      D
                                                                                  Tough                  M     12 Oct 2008      2
 
 
-Home Teaching Organization: Elders                                        District Supervisor: Boatup, George (216-995-2383)
+Home Teaching Organization: Elders                                        District Supervisor: Boatup, George (216-995-2888)
           Home Teachers                            Households                     Given Name        Sex        Birth         Age
 MacIntry, Josh                       Cooncha                                   Peter                  M          11 May
   9982 East Smile Dr                   3737 South Superfun Drive               Tami                    F          29 Aug
   Green, OH 45202                      Green, OH 45202
-  216-368-4538                         216-369-6018
+  216-368-4538                         216-996-8777
   joshmacintry@comcast.net             coo@osu.net
 Boatup, George                       Icey                                      Dustin                  M          11 Mar
   2222 Superfun Drive                  3904 N. Superfun Drive                  Melinda                 F           21 Jun
   Green, OH 45202                      Green, OH 45202                           Fred                  M     11 Jun 2003       7
-  216-995-2383                         216-373-9794                              Sally                 F      19 Jul 2005      5
+  216-995-2888                         216-373-9794                              Sally                 F      19 Jul 2005      5
   georgeboat3@yahoo.com                                                          Billy                 M      8 Apr 2007       4
                                                                                  Tough                 M     12 Oct 2008       2
+
+
+Home Teaching Organization: Elders                                        District Supervisor: Boatup, George (216-995-2888)
+           Home Teachers                             Households                   Given Name          Sex        Birth         Age
+Cooncha, Peter                       Lixenbox                                  Clinton                  M             8 Oct
+  3737 North Superfun Drive             3320 N Superfun Dr
+  Green, OH 45202                       Green, OH 45202
+  216-996-8777                          216-687-1121
+  coo@osu.net                        Troxel                                    Jordan                    M           22 Jan
+De Nimbl, Mike                          852 Swicky Lane                        Kaatiee Mips              F          28 Mar
+  1119 Salle Drive                      Green, OH 45202
+  Green, OH 45202                       216-777-3321
+  Waxie, CC                             jordan.troxel@gmail.com
+
+
+Home Teaching Organization: Elders                                        District Supervisor: Boatup, George (216-995-2888)
+           Home Teachers                             Households                   Given Name          Sex        Birth        Age
+De Nimbl, Mike                       Lixenbox                                  Clinton                  M             8 Oct
+  1119 Salle Drive                      3320 N Superfun Dr
+  Green, OH 45202                       Green, OH 45202
+  Waxie, CC                             216-687-1121
+Cooncha, Peter                       Troxel                                    Jordan                    M           22 Jan
+  3737 North Superfun Drive             852 Swicky Lane                        Kaatiee Mips              F          28 Mar
+  Green, OH 45202                       Green, OH 45202
+  216-996-8777                          216-777-3321
+  coo@osu.net                           jordan.troxel@gmail.com
+
 
 
                                                     For Church Use Only                                            5 May 2011
