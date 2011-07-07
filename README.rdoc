@@ -9,8 +9,7 @@ Read the output of an LDS home/visiting teaching assignment PDF file
 
     assignments = HomeTeach::Assignments.create("HomeTeachingAssignments.pdf")
     assignments.each do |assignment|
-      assignment.
-      
+      # fill this in!
     end
  
 == Copyright

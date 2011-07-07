@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'trollop'
-require 'home_teaching_assignments'
+require 'home_teach/assignment'
 
 class String
   def pluralize
@@ -136,7 +136,7 @@ if opt[:email_list]
   end
 end
 
-assignments = Assignment.create_assignments(pdf)
+assignments = HomeTeach::Assignment.create(pdf)
 if home_teachers_from_email_list
   assignments.each do |assignment|
     assignment.teachers.each do |teacher|
