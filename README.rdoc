@@ -1,8 +1,17 @@
-= teacher_assignments
+= home_teach
 
-Simple library to read the output of an LDS home/visiting teaching assignment PDF file (requires pdftotext from the Poppler library)
+Library for automating home teaching tasks.
 
 == Examples
+
+Read the output of an LDS home/visiting teaching assignment PDF file
+(requires pdftotext from the Poppler library).
+
+    assignments = HomeTeach::Assignments.create("HomeTeachingAssignments.pdf")
+    assignments.each do |assignment|
+      assignment.
+      
+    end
  
 == Copyright
 
